@@ -9,7 +9,7 @@ int main(){
     int temp;
     int num[col][row];
     int k = 0;
-    int num1[n];
+    int num1[n + 1];
 
     for(int i = 0; i < col; i++){
         for(int j = 0; j < row; j++){

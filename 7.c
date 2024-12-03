@@ -5,28 +5,42 @@ int main(){
     scanf("%d", &col);
     printf("Enter row number: ");
     scanf("%d", &row);
-    int n = col * row;    
+    int n = col * row;
     int temp;
     int num[col][row];
     int k = 0;
-    int num1[100];
-    
-  for(int i = 0; i < col; i++){
+    int num1[n];
+
+    for(int i = 0; i < col; i++){
         for(int j = 0; j < row; j++){
             printf("col %d : row %d: ", i + 1, j +1);
-            scanf("%d", &num[i][j]);
-            printf("\n");
-            num1[k] = num[i][j];
+            scanf("%d", &num1[k]);
             k++;
+        }
+    }
+    for(int i = 1; i < n + 1; i++) {
+        for(int j = 0; j < i; j++) {
+            if(num1[i] < num1[j]) {
+                int temp = num1[i];
+                num1[i] = num1[j];
+                num1[j] = temp;
             }
         }
-
-
-
-  for(int i = 0; i < n; i++){
-    printf("%d ", num1[i]);
-        
+    }
+    k = 1;
+    for(int i = 0; i < col; i++) {
+        for(int j = 0; j < row; j++) {
+          num[i][j] = num1[k];
+            k ++;
         }
+    }
 
+    for(int i = 0; i < col; i++) {
+        for(int j = 0; j < row; j++) {
+          printf("%d ", num[i][j]);
+        }
+        printf("\n");
+    }
 
+    return 0;
 }
